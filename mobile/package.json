@@ -12,8 +12,11 @@
     "expo": "~55.0.8",
     "expo-router": "~55.0.7",
     "expo-status-bar": "~55.0.4",
-    "react": "19.2.0",
-    "react-native": "0.83.2"
+    "react": "19.2.4",
+    "react-native": "0.83.2",
+    "react-native-fast-tflite": "^2.0.0",
+    "react-native-screens": "^4.24.0",
+    "vision-camera-resize-plugin": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "~19.2.2",

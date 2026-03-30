@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useTensorflowModel } from 'react-native-fast-tflite'
+import { useEffect } from 'react'
+import { View, Text } from 'react-native'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+  const model = useTensorflowModel(require('./model/best_float32.tflite'))
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  useEffect(() => {
+    if (model.state === 'loaded') {
+      console.log('Model loaded successfully')
+      console.log('Inputs:', model.model.inputs)
+      console.log('Outputs:', model.model.outputs)
+    }
+    if (model.state === 'error') {
+      console.log('Model error:', model.error)
+    }
+  }, [model.state])
+
+  return (
+    <View>
+      <Text>Model state: {model.state}</Text>
+    </View>
+  )
+}
