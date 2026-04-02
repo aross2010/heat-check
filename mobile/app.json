@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "heatcheckhoops",
     "name": "heat check",
     "slug": "Heat Check",
     "version": "1.0.0",
@@ -30,7 +31,9 @@
     },
     "plugins": [
       "expo-router",
-      "react-native-fast-tflite"
+      "react-native-fast-tflite",
+      "expo-web-browser",
+      "expo-secure-store"
     ]
   }
 }

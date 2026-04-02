@@ -1,0 +1,5 @@
+export const TOKEN_KEY_NAME = 'accessToken'
+export const REFRESH_TOKEN_KEY_NAME = 'refreshToken'
+// export const BASE_URL = 'https://spotterlog.app'
+export const BASE_URL = 'http://localhost:3000'
+export const APP_SCHEME = 'heatcheckhoops://'

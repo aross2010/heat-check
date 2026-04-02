@@ -1,3 +1,4 @@
+import { desc } from 'drizzle-orm'
 import {
   pgTable,
   uuid,
@@ -13,6 +14,7 @@ import {
 import { relations } from 'drizzle-orm/relations'
 
 export const authProvider = pgEnum('auth_provider', ['google', 'apple'])
+export const shotLocation = pgEnum('shot_location', ['left', 'center', 'right'])
 
 export const users = pgTable('users', {
   id: uuid('id').defaultRandom().primaryKey(),
@@ -50,8 +52,8 @@ export const sessions = pgTable('sessions', {
   startTime: timestamp('start_time').defaultNow(),
   endTime: timestamp('end_time'),
   location: text('location'),
-  multiplayer: boolean('multiplayer').default(false),
   name: text('name'),
+  description: text('description'),
 })
 
 export const shots = pgTable('shots', {
@@ -62,6 +64,7 @@ export const shots = pgTable('shots', {
   made: boolean('made').notNull(),
   x: real('x').notNull(),
   y: real('y').notNull(),
+  shotLocation: shotLocation('shot_location').notNull(),
   takenAt: timestamp('taken_at').defaultNow(),
 })
 

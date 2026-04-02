@@ -9,14 +9,23 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@heat-check/shared": "*",
     "expo": "~55.0.8",
+    "expo-apple-authentication": "~55.0.9",
+    "expo-auth-session": "~55.0.10",
+    "expo-crypto": "~55.0.10",
     "expo-router": "~55.0.7",
+    "expo-secure-store": "~55.0.9",
     "expo-status-bar": "~55.0.4",
+    "expo-web-browser": "~55.0.10",
+    "jose": "^6.2.2",
     "react": "19.2.4",
     "react-native": "0.83.2",
     "react-native-fast-tflite": "^2.0.0",
+    "react-native-mmkv": "^3.3.0",
     "react-native-screens": "^4.24.0",
-    "vision-camera-resize-plugin": "^3.2.0"
+    "vision-camera-resize-plugin": "^3.2.0",
+    "zustand": "^5.0.12"
   },
   "devDependencies": {
     "@types/react": "~19.2.2",
