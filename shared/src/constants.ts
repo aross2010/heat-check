@@ -5,6 +5,10 @@ export const REFRESH_TOKEN_KEY_NAME = 'refreshToken'
 export const BASE_URL = 'http://localhost:3000'
 export const APP_SCHEME = 'heatcheckhoops://'
 
+export const Colors = {
+  primary: '#E88D05',
+}
+
 // server usage
 export const JWT_EXP_TIME = '30m'
 export const REFRESH_TOKEN_EXP_TIME = '90d'
