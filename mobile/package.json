@@ -1,7 +1,7 @@
 {
   "name": "mobile",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "expo-router/entry",
   "scripts": {
     "start": "expo start",
     "android": "expo run:android",
@@ -29,6 +29,7 @@
     "react-native-keyboard-controller": "1.20.3",
     "react-native-mmkv": "^3.3.0",
     "react-native-screens": "^4.24.0",
+    "react-native-svg-transformer": "^1.5.3",
     "twrnc": "4.9.1",
     "victory-native": "41.20.1",
     "vision-camera-resize-plugin": "^3.2.0",

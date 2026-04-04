@@ -2,7 +2,7 @@
   "expo": {
     "scheme": "heatcheckhoops",
     "name": "heat check",
-    "slug": "Heat Check",
+    "slug": "heat-check",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -14,7 +14,12 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.aross2010.heatcheck"
+      "bundleIdentifier": "com.aross2010.heatcheck",
+      "usesAppleSignIn": true,
+      "deploymentTarget": "26.0",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -35,6 +40,12 @@
       "expo-web-browser",
       "expo-secure-store",
       "@react-native-community/datetimepicker"
-    ]
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "20f34c82-92a1-4208-8d41-711c2db1649f"
+      }
+    }
   }
 }
