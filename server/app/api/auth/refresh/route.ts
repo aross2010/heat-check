@@ -3,7 +3,7 @@ import {
   JWT_SECRET,
   REFRESH_TOKEN_EXP_TIME,
 } from '@heat-check/shared'
-import { db } from '@/db'
+import db from '@/db'
 import * as jose from 'jose'
 import { NextResponse } from 'next/server'
 

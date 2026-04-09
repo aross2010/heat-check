@@ -9,7 +9,7 @@ import {
 } from '@heat-check/shared'
 import { NextResponse } from 'next/server'
 import * as jose from 'jose'
-import { db } from '@/db'
+import db from '@/db'
 import { and, eq } from 'drizzle-orm'
 
 export async function POST(request: Request) {
@@ -119,7 +119,7 @@ export async function POST(request: Request) {
     jti,
     type: 'refresh',
     sub: user.providerId,
-    ...user,
+    id: user.id,
   })
     .setProtectedHeader({ alg: 'HS256' })
     .setExpirationTime(REFRESH_TOKEN_EXP_TIME)

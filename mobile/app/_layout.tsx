@@ -6,6 +6,7 @@ import { KeyboardProvider } from 'react-native-keyboard-controller'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { AuthProvider } from '../context/auth-context'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
+
 SplashScreen.setOptions({
   duration: 1000,
   fade: true,

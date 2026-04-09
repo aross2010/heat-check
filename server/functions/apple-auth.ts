@@ -5,7 +5,7 @@ import {
   REFRESH_TOKEN_EXP_TIME,
   JWT_SECRET,
 } from '@heat-check/shared'
-import { db } from '@/db'
+import db from '@/db'
 
 interface AppleAuthResult {
   accessToken: string
@@ -31,7 +31,7 @@ export async function verifyAndCreateTokens({
   try {
     const { payload } = await jose.jwtVerify(identityToken, JWKS, {
       issuer: 'https://appleid.apple.com',
-      audience: 'app.aross.heatcheck',
+      audience: 'com.aross2010.heatcheck',
     })
 
     const currentTimestamp = Math.floor(Date.now() / 1000)

@@ -253,13 +253,24 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const signOut = async () => {
-    await tokenCache?.deleteToken(TOKEN_KEY_NAME)
-    await tokenCache?.deleteToken(REFRESH_TOKEN_KEY_NAME)
-    setAuthUser(null)
-    setAccessToken(null)
-    setRefreshToken(null)
-    clearUserStore()
-    router.replace('/')
+    Alert.alert('Sign Out', 'Are you sure you want to sign out?', [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {
+        text: 'Sign Out',
+        onPress: async () => {
+          await tokenCache?.deleteToken(TOKEN_KEY_NAME)
+          await tokenCache?.deleteToken(REFRESH_TOKEN_KEY_NAME)
+          setAuthUser(null)
+          setAccessToken(null)
+          setRefreshToken(null)
+          clearUserStore()
+          router.replace('/')
+        },
+      },
+    ])
   }
 
   // helper function for apple sign in
