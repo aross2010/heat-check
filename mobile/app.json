@@ -39,7 +39,8 @@
       "react-native-fast-tflite",
       "expo-web-browser",
       "expo-secure-store",
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      "expo-font"
     ],
     "extra": {
       "router": {},

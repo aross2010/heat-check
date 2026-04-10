@@ -10,10 +10,10 @@ export default function HomeLayout() {
           headerLargeTitle: true,
           headerTransparent: true,
           headerTitleStyle: {
-            fontWeight: 600,
+            fontFamily: 'AlbertSans_600SemiBold',
           },
           headerLargeTitleStyle: {
-            fontWeight: '600',
+            fontFamily: 'AlbertSans_600SemiBold',
           },
         }}
       />

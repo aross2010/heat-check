@@ -4,6 +4,16 @@ import { Stack } from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import { KeyboardProvider } from 'react-native-keyboard-controller'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import {
+  useFonts,
+  AlbertSans_300Light,
+  AlbertSans_400Regular,
+  AlbertSans_400Regular_Italic,
+  AlbertSans_500Medium,
+  AlbertSans_600SemiBold,
+  AlbertSans_700Bold,
+  AlbertSans_700Bold_Italic,
+} from '@expo-google-fonts/albert-sans'
 import { AuthProvider } from '../context/auth-context'
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet'
 
@@ -13,6 +23,18 @@ SplashScreen.setOptions({
 })
 
 const RootLayout = () => {
+  const [fontsLoaded] = useFonts({
+    AlbertSans_300Light,
+    AlbertSans_400Regular,
+    AlbertSans_400Regular_Italic,
+    AlbertSans_500Medium,
+    AlbertSans_600SemiBold,
+    AlbertSans_700Bold,
+    AlbertSans_700Bold_Italic,
+  })
+
+  if (!fontsLoaded) return null
+
   return (
     <AuthProvider>
       <GestureHandlerRootView>

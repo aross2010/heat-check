@@ -7,6 +7,9 @@ export const APP_SCHEME = 'heatcheckhoops://'
 
 export const Colors = {
   primary: '#E88D05',
+  green: '#26C100',
+  yellow: '#E8C205',
+  red: '#C22100',
 }
 
 // server usage

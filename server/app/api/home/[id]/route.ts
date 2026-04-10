@@ -29,6 +29,7 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
           userId: sessions.userId,
           startTime: sessions.startTime,
           endTime: sessions.endTime,
+          date: sessions.date,
           location: sessions.location,
           name: sessions.name,
           description: sessions.description,
@@ -60,7 +61,7 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
         ? {
             id: lastSession.id,
             userId: lastSession.userId,
-            date: lastSession.startTime?.toISOString() ?? '',
+            date: lastSession.date,
             startedAt: lastSession.startTime?.toISOString() ?? '',
             endedAt: lastSession.endTime?.toISOString() ?? '',
             location: lastSession.location ?? undefined,
@@ -83,7 +84,7 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
         return {
           id: s.id,
           userId: s.userId,
-          date: s.startTime?.toISOString() ?? '',
+          date: s.date,
           startedAt: s.startTime?.toISOString() ?? '',
           endedAt: s.endTime?.toISOString() ?? '',
           location: s.location ?? undefined,
