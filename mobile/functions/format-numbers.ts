@@ -1,6 +1,5 @@
 export function formatNumber(num: number): string {
   if (num < 10000) {
-    console.log(num, typeof num)
     return num.toLocaleString('en-US')
   }
 

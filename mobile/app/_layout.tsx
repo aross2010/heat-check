@@ -61,7 +61,7 @@ const RootLayout = () => {
                 <Stack.Screen
                   name="(modals)"
                   options={{
-                    presentation: 'card',
+                    presentation: 'modal',
                     headerShown: false,
                     animation: 'slide_from_bottom',
                     animationDuration: 350,

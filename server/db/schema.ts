@@ -1,15 +1,14 @@
-import { desc } from 'drizzle-orm'
 import {
   pgTable,
   uuid,
   text,
   boolean,
-  real,
   timestamp,
   unique,
   index,
   varchar,
   pgEnum,
+  date,
 } from 'drizzle-orm/pg-core'
 import { relations } from 'drizzle-orm/relations'
 
@@ -49,9 +48,9 @@ export const sessions = pgTable('sessions', {
   userId: uuid('user_id')
     .notNull()
     .references(() => users.id, { onDelete: 'cascade' }),
-  startTime: timestamp('start_time').defaultNow(),
+  startTime: timestamp('start_time'),
   endTime: timestamp('end_time'),
-  date: text('date').notNull(),
+  date: date('date').notNull().defaultNow(),
   location: text('location'),
   name: text('name'),
   description: text('description'),
@@ -60,11 +59,9 @@ export const sessions = pgTable('sessions', {
 export const shots = pgTable('shots', {
   id: uuid('id').defaultRandom().primaryKey(),
   sessionId: uuid('session_id')
-    .references(() => sessions.id)
+    .references(() => sessions.id, { onDelete: 'cascade' })
     .notNull(),
   made: boolean('made').notNull(),
-  x: real('x').notNull(),
-  y: real('y').notNull(),
   shotLocation: shotLocation('shot_location').notNull(),
   takenAt: timestamp('taken_at').defaultNow(),
 })

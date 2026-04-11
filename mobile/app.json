@@ -18,7 +18,9 @@
       "usesAppleSignIn": true,
       "deploymentTarget": "26.0",
       "infoPlist": {
-        "ITSAppUsesNonExemptEncryption": false
+        "ITSAppUsesNonExemptEncryption": false,
+        "NSCameraUsageDescription": "HeatCheck needs camera access to track your basketball shots.",
+        "NSMicrophoneUsageDescription": "HeatCheck needs microphone access to record your sessions."
       }
     },
     "android": {

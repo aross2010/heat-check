@@ -11,7 +11,7 @@ import {
 
 type BasketballCourtProps = {
   leftColor: string
-  middleColor: string
+  centerColor: string
   rightColor: string
   leftText?: string
   middleText?: string
@@ -21,7 +21,7 @@ type BasketballCourtProps = {
 
 export const BasketballCourt = ({
   leftColor,
-  middleColor,
+  centerColor,
   rightColor,
   leftText = '',
   middleText = '',
@@ -35,14 +35,53 @@ export const BasketballCourt = ({
       viewBox="0 0 500 470"
     >
       {/* Section backgrounds */}
-      <Rect x={0} y={0} width={150} height={470} fill={leftColor} />
-      <Rect x={150} y={0} width={200} height={470} fill={middleColor} />
-      <Rect x={350} y={0} width={150} height={470} fill={rightColor} />
+      <Rect
+        x={0}
+        y={0}
+        width={150}
+        height={470}
+        fill={leftColor}
+      />
+      <Rect
+        x={150}
+        y={0}
+        width={200}
+        height={470}
+        fill={centerColor}
+      />
+      <Rect
+        x={350}
+        y={0}
+        width={150}
+        height={470}
+        fill={rightColor}
+      />
 
       {/* Free throw lane (no top edge) */}
-      <Line x1={150} y1={0} x2={150} y2={190} stroke="#000" strokeWidth={3} />
-      <Line x1={350} y1={0} x2={350} y2={190} stroke="#000" strokeWidth={3} />
-      <Line x1={150} y1={190} x2={350} y2={190} stroke="#000" strokeWidth={3} />
+      <Line
+        x1={150}
+        y1={0}
+        x2={150}
+        y2={190}
+        stroke="#000"
+        strokeWidth={3}
+      />
+      <Line
+        x1={350}
+        y1={0}
+        x2={350}
+        y2={190}
+        stroke="#000"
+        strokeWidth={3}
+      />
+      <Line
+        x1={150}
+        y1={190}
+        x2={350}
+        y2={190}
+        stroke="#000"
+        strokeWidth={3}
+      />
 
       {/* Free throw circle top half */}
       <Path
@@ -105,7 +144,7 @@ export const BasketballCourt = ({
 
       {/* Labels */}
       <SvgText
-        x={75}
+        x={90}
         y={117.5}
         textAnchor="middle"
         fill={textColor}
@@ -125,7 +164,7 @@ export const BasketballCourt = ({
         {middleText}
       </SvgText>
       <SvgText
-        x={425}
+        x={410}
         y={117.5}
         textAnchor="middle"
         fill={textColor}

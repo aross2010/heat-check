@@ -9,6 +9,7 @@ import tw from '../tw'
 import Logo from '../assets/logo.svg'
 import SignInWithGoogle from './sign-in-with-google'
 import { SignInWithApple } from './sign-in-with-apple'
+import { BASE_URL } from '@heat-check/shared'
 
 const Auth = () => {
   const { isLoading, signIn } = useAuth()

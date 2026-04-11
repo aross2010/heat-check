@@ -14,7 +14,7 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
   }
 
   try {
-    const [statsRows, sessionRows, lastSession] = await Promise.all([
+    const [statsRows, sessionRows] = await Promise.all([
       db
         .select({
           totalShots: count(),
@@ -42,11 +42,6 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
         .groupBy(sessions.id)
         .orderBy(desc(sessions.startTime))
         .limit(10),
-      db.query.sessions.findFirst({
-        where: eq(sessions.userId, userId!),
-        with: { shots: true },
-        orderBy: [desc(sessions.startTime)],
-      }),
     ])
 
     const { totalShots, totalMakes } = statsRows[0]
@@ -56,28 +51,6 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
 
     const data: HomeData = {
       stats: { totalShots, totalMakes, totalMisses, shootingPercentage },
-      playerComp: getPlayerComp(shootingPercentage),
-      lastSession: lastSession
-        ? {
-            id: lastSession.id,
-            userId: lastSession.userId,
-            date: lastSession.date,
-            startedAt: lastSession.startTime?.toISOString() ?? '',
-            endedAt: lastSession.endTime?.toISOString() ?? '',
-            location: lastSession.location ?? undefined,
-            name: lastSession.name ?? undefined,
-            description: lastSession.description ?? undefined,
-            shots: lastSession.shots.map((shot) => ({
-              id: shot.id,
-              sessionId: shot.sessionId,
-              made: shot.made,
-              shotLocation: shot.shotLocation,
-              x: shot.x,
-              y: shot.y,
-              takenAt: shot.takenAt?.toISOString() ?? '',
-            })),
-          }
-        : null,
       previousSessions: sessionRows.map((s) => {
         const makes = s.totalMakes
         const total = s.totalShots

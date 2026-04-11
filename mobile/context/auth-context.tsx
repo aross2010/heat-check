@@ -13,7 +13,8 @@ import {
   BASE_URL,
   REFRESH_TOKEN_KEY_NAME,
   TOKEN_KEY_NAME,
-} from '../constants/auth'
+} from '@heat-check/shared'
+
 import * as jose from 'jose'
 import { tokenCache } from '../utils/cache'
 import { useRouter } from 'expo-router'
@@ -427,6 +428,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       if (deleteAccount) return tokens
       await handleNativeTokens(tokens)
     } catch (error) {
+      console.error('Error during Apple sign in:', error)
       setError(error as AuthError)
     } finally {
       setIsLoading(false)

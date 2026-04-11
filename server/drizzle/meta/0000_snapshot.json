@@ -1,5 +1,5 @@
 {
-  "id": "da01ebff-2db6-4d7a-8627-e4ee674c3137",
+  "id": "bebf74df-0734-4fb0-a475-9919cc4c34ec",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -34,21 +34,27 @@
           "primaryKey": false,
           "notNull": false
         },
+        "date": {
+          "name": "date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "now()"
+        },
         "location": {
           "name": "location",
           "type": "text",
           "primaryKey": false,
           "notNull": false
         },
-        "multiplayer": {
-          "name": "multiplayer",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": false,
-          "default": false
-        },
         "name": {
           "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "description": {
+          "name": "description",
           "type": "text",
           "primaryKey": false,
           "notNull": false
@@ -99,15 +105,10 @@
           "primaryKey": false,
           "notNull": true
         },
-        "x": {
-          "name": "x",
-          "type": "real",
-          "primaryKey": false,
-          "notNull": true
-        },
-        "y": {
-          "name": "y",
-          "type": "real",
+        "shot_location": {
+          "name": "shot_location",
+          "type": "shot_location",
+          "typeSchema": "public",
           "primaryKey": false,
           "notNull": true
         },
@@ -131,7 +132,7 @@
           "columnsTo": [
             "id"
           ],
-          "onDelete": "no action",
+          "onDelete": "cascade",
           "onUpdate": "no action"
         }
       },
@@ -323,6 +324,15 @@
       "values": [
         "google",
         "apple"
+      ]
+    },
+    "public.shot_location": {
+      "name": "shot_location",
+      "schema": "public",
+      "values": [
+        "left",
+        "center",
+        "right"
       ]
     }
   },

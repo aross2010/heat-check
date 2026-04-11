@@ -26,8 +26,6 @@ export type Shot = {
   sessionId: string
   made: boolean
   shotLocation: ShotLocation
-  x: number
-  y: number
   takenAt: string
 }
 
@@ -56,7 +54,20 @@ export type HomeData = {
     totalMisses: number
     shootingPercentage: number
   }
-  playerComp: string // compared to nba player based on shooting percentage
-  lastSession: Session | null
   previousSessions: SessionSummary[]
+}
+
+export type ShotChartData = {
+  left: { made: number; total: number }
+  center: { made: number; total: number }
+  right: { made: number; total: number }
+}
+
+export type CreatedSession = {
+  id: string
+  userId: string
+  date: string
+  location?: string
+  name?: string
+  description?: string
 }
