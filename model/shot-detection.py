@@ -5,6 +5,7 @@ import numpy as np
 model = YOLO('best.pt')
 cap = cv2.VideoCapture('test.mp4')
 fps = cap.get(cv2.CAP_PROP_FPS)
+print(f'Video FPS: {fps}')
 
 ball_pos = []
 hoop_pos = []

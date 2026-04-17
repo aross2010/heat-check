@@ -1,7 +1,6 @@
 // client usage
 export const TOKEN_KEY_NAME = 'accessToken'
 export const REFRESH_TOKEN_KEY_NAME = 'refreshToken'
-// export const BASE_URL = 'https://spotterlog.app'
 export const BASE_URL = 'http://localhost:3000'
 export const APP_SCHEME = 'heatcheckhoops://'
 
@@ -10,8 +9,12 @@ export const Colors = {
   green: '#26C100',
   yellow: '#E8C205',
   red: '#C22100',
+  text: '#1a1a1a',
+  background: '#f0f0f0',
+  grayPrimary: '#e0e0e0',
+  grayBorder: '#e7e7e7',
+  grayText: '#747474',
 }
-
 // server usage
 export const JWT_EXP_TIME = '30m'
 export const REFRESH_TOKEN_EXP_TIME = '90d'

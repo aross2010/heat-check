@@ -40,8 +40,7 @@ export const GET = withAuth(async (req: Request, user: AuthUser) => {
         .leftJoin(shots, eq(shots.sessionId, sessions.id))
         .where(eq(sessions.userId, userId!))
         .groupBy(sessions.id)
-        .orderBy(desc(sessions.startTime))
-        .limit(10),
+        .orderBy(desc(sessions.startTime)),
     ])
 
     const { totalShots, totalMakes } = statsRows[0]

@@ -34,7 +34,7 @@ const SessionForm = () => {
         }),
       })
       const data = (await res.json()) as CreatedSession
-      router.push(`/live?id=${data.id}`)
+      router.replace(`/live?id=${data.id}`)
     } catch (error) {
       console.error('Error creating session:', error)
     } finally {

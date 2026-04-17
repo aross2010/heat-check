@@ -14,6 +14,7 @@ import { GlassView } from 'expo-glass-effect'
 import ShootingRing from '../../../components/shooting-ring'
 import Spinner from '../../../components/spinner'
 import { formatDate } from '../../../functions/fromat-date'
+import SwipeableRow from '../../../components/swipeable-row'
 
 const Home = () => {
   const { authUser, fetchWithAuth } = useAuth()
@@ -79,6 +80,22 @@ const Home = () => {
     </View>
   )
 
+  const deleteSession = async (id: string) => {
+    setData((prev) =>
+      prev
+        ? {
+            ...prev,
+            previousSessions: prev.previousSessions.filter((s) => s.id !== id),
+          }
+        : prev,
+    )
+    try {
+      await fetchWithAuth(`${BASE_URL}/api/sessions/${id}`, { method: 'DELETE' })
+    } catch (error) {
+      console.error('Error deleting session:', error)
+    }
+  }
+
   const prevSessions = data && (
     <View>
       <Txt twcn="font-bold text-xl mb-2">Previous Sessions</Txt>
@@ -86,30 +103,33 @@ const Home = () => {
         {data?.previousSessions.map(
           ({ id, name, date, shootingPercentage, totalShots }) => {
             return (
-              <Button
-                onPress={() => {
-                  // TODO: open modal with shot chart + in depth stats
-                  router.push(`/session?id=${id}`)
-                }}
-                twcn=" border-b border-grayBorder p-4 flex-row justify-between items-center"
+              <SwipeableRow
                 key={id}
+                onDelete={() => deleteSession(id)}
               >
-                <View style={tw`gap-1`}>
-                  <Txt twcn="font-semibold">
-                    {name && `${name} • `}
-                    {formatDate(date)}
-                  </Txt>
-                  <Txt twcn="text-sm text-grayText">
-                    {shootingPercentage.toFixed(1)}% •{' '}
-                    {formatNumber(totalShots)} shots
-                  </Txt>
-                </View>
-                <SFIcon
-                  name="chevron.right"
-                  color={Colors.grayText}
-                  size={16}
-                />
-              </Button>
+                <Button
+                  onPress={() => {
+                    router.push(`/session?id=${id}`)
+                  }}
+                  twcn="border-b border-grayBorder p-4 flex-row justify-between items-center bg-background"
+                >
+                  <View style={tw`gap-1`}>
+                    <Txt twcn="font-semibold">
+                      {name && `${name} • `}
+                      {formatDate(date)}
+                    </Txt>
+                    <Txt twcn="text-sm text-grayText">
+                      {shootingPercentage.toFixed(1)}% •{' '}
+                      {formatNumber(totalShots)} shots
+                    </Txt>
+                  </View>
+                  <SFIcon
+                    name="chevron.right"
+                    color={Colors.grayText}
+                    size={16}
+                  />
+                </Button>
+              </SwipeableRow>
             )
           },
         )}

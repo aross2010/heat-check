@@ -42,7 +42,8 @@
       "expo-web-browser",
       "expo-secure-store",
       "@react-native-community/datetimepicker",
-      "expo-font"
+      "expo-font",
+      "react-native-vision-camera"
     ],
     "extra": {
       "router": {},

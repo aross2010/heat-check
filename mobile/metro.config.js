@@ -7,6 +7,7 @@ config.transformer.babelTransformerPath =
 config.resolver.assetExts = config.resolver.assetExts.filter(
   (ext) => ext !== 'svg',
 )
+config.resolver.assetExts = [...config.resolver.assetExts, 'tflite']
 config.resolver.sourceExts = [...config.resolver.sourceExts, 'svg']
 
 module.exports = config
